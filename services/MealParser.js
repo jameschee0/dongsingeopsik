@@ -22,17 +22,11 @@ function doRequest(url){
   request(url, function(err, resp, html) {
       if (!err){
         const $ = cheerio.load(html);
-        var current_id = 0;
-        var test = '';
         $('.tbl_type3 th:contains("중식")').parent().children().each(function () {
-          list.push($(this).text());
-          console.log($(this).text()+"///////");
-          if(current_id===2){
-            test = $(this).text();
-          }
-          current_id = current_id+1;
+          list.push($(this).text($.root()));
+          console.log($(this).text($.root())+"///////");
         });
-        return test;
+        return list[2];
     }else{
       return 'there was an error';
     }
