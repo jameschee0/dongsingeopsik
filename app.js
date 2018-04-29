@@ -91,7 +91,19 @@ function handleMessage(sender_psid, received_message) {
   if (received_message.text) {
     // Create the payload for a basic text message, which
     // will be added to the body of our request to the Send API
-    response = { "text": "hey this is a message response"};
+    if(received_message.text==='오늘의 급식'){
+      mealParser.parse();
+      response={
+        "text":"여기에 급식 디스플레이",
+        "quick_replies":[
+          {
+          "content_type":"text",
+          "title":"오늘의 급식",
+          "payload":"GET_MENU_PAYLOAD",
+          }
+        ]
+      }
+    }
   } else if (received_message.attachments) {
     // Get the URL of the message attachment
     let attachment_url = received_message.attachments[0].payload.url;
@@ -134,8 +146,17 @@ function handlePostback(sender_psid, received_postback) {
 
   // Set the response based on the postback payload
   if (payload === 'GET_MENU_PAYLOAD') {
-    response = { "text": "hey"
-                }
+    mealParser.parse();
+    response={
+      "text":"여기에 급식 디스플레이",
+      "quick_replies":[
+        {
+        "content_type":"text",
+        "title":"오늘의 급식",
+        "payload":"GET_MENU_PAYLOAD",
+        }
+      ]
+    }
   }else if (payload === "GET_STARTED_PAYLOAD") {
     response = {"text":"ㅂㅇㄹ!! 아래 버튼을 눌러 오늘의 메뉴를 확인하세요",
                 "quick_replies":[
