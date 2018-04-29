@@ -1,9 +1,8 @@
-const cheerio = require('cheerio');
-const request = require('request');
-
 class MealParser{
-
-  var init_url = 'https://stu.dje.go.kr/sts_sci_md01_001.do?schulCode=G100000208&schulCrseScCode=4&schulKndScCode=04&schMmealScCode=2';
+  const cheerio = require('cheerio');
+  const request = require('request');
+  
+  const init_url = 'https://stu.dje.go.kr/sts_sci_md01_001.do?schulCode=G100000208&schulCrseScCode=4&schulKndScCode=04&schMmealScCode=2';
 
   makeURL()=>{
     var result = this.init_url;
@@ -22,5 +21,5 @@ class MealParser{
   parse()=>{
     doRequest(makeURL());
   }
-
+}
 module.exports = MealParser;
