@@ -1,7 +1,6 @@
 class MealParser{
-  const
-    cheerio = require('cheerio'),
-    request = require('request');
+  const cheerio = require('cheerio'),
+  const request = require('request');
 
   const init_url = "https://stu.dje.go.kr/sts_sci_md01_001.do?schulCode=G100000208&schulCrseScCode=4&schulKndScCode=04&schMmealScCode=2";
 
