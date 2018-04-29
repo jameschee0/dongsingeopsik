@@ -25,7 +25,7 @@ function doRequest(url){
         $('.tbl_type3 th:contains("중식")').parent().children().each(function () {
           console.log($(this).text());
           list.push($(this).text());
-          return list[2];
+          return list[0];
         });
     }else{
       return 'there was an error'
