@@ -18,7 +18,7 @@ function makeURL(){
 }
 
 function doRequest(url){
-  var list = []; //[8]monday [12]friday
+  const list = []; //[8]monday [12]friday
   request(url, function(err, resp, html) {
       if (!err){
         const $ = cheerio.load(html);
