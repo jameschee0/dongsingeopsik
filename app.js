@@ -93,7 +93,7 @@ function handleMessage(sender_psid, received_message) {
     var result = MealParser.parse();
     if(received_message.text==='오늘의 급식'){
       response={
-        "text":result[8],
+        "text":result,
         "quick_replies":[
           {
           "content_type":"text",
@@ -147,7 +147,7 @@ function handlePostback(sender_psid, received_postback) {
   if (payload === 'GET_MENU_PAYLOAD') {
     var result = MealParser.parse();
     response={
-      "text":result[8],
+      "text":result,
       "quick_replies":[
         {
         "content_type":"text",

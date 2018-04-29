@@ -18,17 +18,16 @@ function makeURL(){
 }
 
 function doRequest(url){
-  var list = [];
+  var list = []; //[8]monday [12]friday
   request(url, function(err, resp, html) {
       if (!err){
         const $ = cheerio.load(html);
         $('table[class="tbl_type3"]').find('tbody > tr > td').each(function (index, element) {list.push($(element).text());
         });
-        console.log(list[8]);
     }
   });
   console.log('request working');
-  return list;
+  return list[8];
 }
 
 module.exports = MealParser;
