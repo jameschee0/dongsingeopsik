@@ -1,7 +1,8 @@
+import cheerio from 'cheerio';
+import request from 'request';
+
 class MealParser{
   constructor(height, width) {
-    this.cheerio = require('cheerio'),
-    this.request = require('request');
     this.init_url = "https://stu.dje.go.kr/sts_sci_md01_001.do?schulCode=G100000208&schulCrseScCode=4&schulKndScCode=04&schMmealScCode=2";
   }
 
@@ -12,9 +13,9 @@ class MealParser{
   }
 
   doRequest(url){
-    this.request(url, function(err, resp, html) {
+    request(url, function(err, resp, html) {
         if (!err){
-          const $ = this.cheerio.load(html);
+          const $ = cheerio.load(html);
           console.log(html);
       }
     });

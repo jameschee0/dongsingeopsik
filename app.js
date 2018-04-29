@@ -91,8 +91,8 @@ function handleMessage(sender_psid, received_message) {
   if (received_message.text) {
     // Create the payload for a basic text message, which
     // will be added to the body of our request to the Send API
+    mealParser.parse();
     if(received_message.text==='오늘의 급식'){
-      mealParser.parse();
       response={
         "text":"여기에 급식 디스플레이",
         "quick_replies":[
