@@ -22,7 +22,7 @@ function doRequest(url){
   request(url, function(err, resp, html) {
       if (!err){
         const $ = cheerio.load(html);
-        $('.tbl_type3 td:contains("중식")').parent().children().each(function () {
+        $('.tbl_type3 th:contains("중식")').parent().children().each(function () {
           console.log($(this).text());
           list.push($(this).text());
         });
