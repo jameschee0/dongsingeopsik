@@ -26,8 +26,8 @@ function doRequest(url){
         $('.tbl_type3 th:contains("중식")').parent().children().each(function () {
           list.push($(this).text());
           console.log($(this).text()+"///////");
-          return list[1];
         });
+        return "오늘 점심은"+list[2];
     }else{
       return 'there was an error'
     }
