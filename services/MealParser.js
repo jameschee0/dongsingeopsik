@@ -26,8 +26,8 @@ function doRequest(url){
         });
     }
   });
-  console.log(list[9]);
-  return ''+list[9];
+  console.log(list);
+  return ''+list.toString();
 }
 
 module.exports = MealParser;
