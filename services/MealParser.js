@@ -23,13 +23,18 @@ function doRequest(url){
       if (!err){
         const $ = cheerio.load(html);
         var current_id = 0;
+        var test = '';
         $('.tbl_type3 th:contains("중식")').parent().children().each(function () {
           list.push($(this).text());
           console.log($(this).text()+"///////");
+          current_id = current_id+1;
+          if(current_id===2){
+            test = $(this).text();
+          }
         });
-        return "오늘 점심은"+list[2];
+        return test;
     }else{
-      return 'there was an error'
+      return 'there was an error';
     }
   });
 }
