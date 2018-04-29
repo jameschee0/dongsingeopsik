@@ -131,12 +131,10 @@ function handlePostback(sender_psid, received_postback) {
   let payload = received_postback.payload;
 
   // Set the response based on the postback payload
-  if (payload === 'yes') {
-    response = { "text": "Thanks!" }
-  } else if (payload === 'no') {
-    response = { "text": "Oops, try sending another image." }
-  }else if (payload === "PAYBILL_PAYLOAD"){
-    response = { "text": "do you want to pay bills? Then do it!!" }
+  if (payload === 'GET_MENU_PAYLOAD') {
+    response = { "text": "오늘의 메뉴는"}
+  }else if (payload === "GET_STARTED_PAYLOAD") {
+    response = {"text":"ㅂㅇㄹ!! 아래 버튼을 눌러 오늘의 메뉴를 확인하세요"}
   }
   // Send the message to acknowledge the postback
   callSendAPI(sender_psid, response);
@@ -172,18 +170,17 @@ function setupAPI(){
     qs: { access_token: PAGE_ACCESS_TOKEN },
     method: 'POST',
     json:{
-  "get_started":{
-    "payload":"GET_STARTED_PAYLOAD"
-   }
- }
-}, function(error, response, body) {
-    console.log("Add persistent menu " + response)
+      "get_started":{
+      "payload":"GET_STARTED_PAYLOAD"
+        }
+      }
+    }, function(error, response, body) {
     if (error) {
         console.log('Error sending messages: ', error)
     } else if (response.body.error) {
         console.log('Error: ', response.body.error)
     }
-})
+  })
   request({
     "uri": "https://graph.facebook.com/v2.6/me/messenger_profile",
     "qs": { "access_token": PAGE_ACCESS_TOKEN },
