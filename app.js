@@ -139,14 +139,7 @@ function handlePostback(sender_psid, received_postback) {
   if (payload === 'GET_MENU_PAYLOAD') {
     parser.getDailyMenu(new Date()).then((info) => {
       console.log(info)
-      response = { "text": info,
-                    "quick_replies":[
-                      {
-                      "content_type":"text",
-                      "title":"오늘의 급식",
-                      "payload":"GET_MENU_PAYLOAD",
-                      }
-                    ]
+      response = { "text": "hey"
                   }
     });
   }else if (payload === "GET_STARTED_PAYLOAD") {
