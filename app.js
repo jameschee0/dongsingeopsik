@@ -139,9 +139,9 @@ function handlePostback(sender_psid, received_postback) {
   if (payload === 'GET_MENU_PAYLOAD') {
     parser.getDailyMenu(new Date()).then((info) => {
       console.log(info)
-      response = { "text": "hey"
-                  }
     });
+    response = { "text": "hey"
+                }
   }else if (payload === "GET_STARTED_PAYLOAD") {
     response = {"text":"ㅂㅇㄹ!! 아래 버튼을 눌러 오늘의 메뉴를 확인하세요",
                 "quick_replies":[
