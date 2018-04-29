@@ -1,30 +1,29 @@
-import cheerio from 'cheerio';
-import request from 'request';
+const cheerio = require("cheerio"),
+      request = require("request");
 
-class MealParser{
-  constructor(height, width) {
-    this.init_url = "https://stu.dje.go.kr/sts_sci_md01_001.do?schulCode=G100000208&schulCrseScCode=4&schulKndScCode=04&schMmealScCode=2";
-  }
+const init_url = "https://stu.dje.go.kr/sts_sci_md01_001.do?schulCode=G100000208&schulCrseScCode=4&schulKndScCode=04&schMmealScCode=2";
 
-  parse(){
-    var result;
-    console.log(''+this.init_url);
-    this.doRequest(this.makeURL(''+this.init_url));
-  }
+const MealParser = {};
 
-  doRequest(url){
-    request(url, function(err, resp, html) {
-        if (!err){
-          const $ = cheerio.load(html);
-          console.log(html);
-      }
-    });
-    console.log('request working');
-  }
-
-  makeURL(){
-    var result = this.init_url;
-    return result;
-  }
+MealParser.parse = () => {
+  var result;
+  console.log(''+init_url);
+  doRequest(makeURL());
 }
+
+function makeURL(){
+  var result = init_url;
+  return result;
+}
+
+function doRequest(url){
+  request(url, function(err, resp, html) {
+      if (!err){
+        const $ = cheerio.load(html);
+        console.log(html);
+    }
+  });
+  console.log('request working');
+}
+
 module.exports = MealParser;

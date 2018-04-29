@@ -12,7 +12,6 @@ const
   app = express().use(body_parser.json()); // creates express http server
 
 const template = new Template();
-const mealParser = new MealParser();
 
 // Sets server port and logs message on success
 app.listen(process.env.PORT || 1337, () => console.log('webhook is listening'));
