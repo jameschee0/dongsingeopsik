@@ -12,7 +12,7 @@ const
   app = express().use(body_parser.json()); // creates express http server
 
 const template = new Template();
-const MealParser = new MealParser();
+const mealParser = new MealParser();
 
 // Sets server port and logs message on success
 app.listen(process.env.PORT || 1337, () => console.log('webhook is listening'));
@@ -134,7 +134,7 @@ function handlePostback(sender_psid, received_postback) {
 
   // Set the response based on the postback payload
   if (payload === 'GET_MENU_PAYLOAD') {
-    MealParser.parse();
+    mealParser.parse();
     response = { "text": "hey"
                 }
   }else if (payload === "GET_STARTED_PAYLOAD") {
