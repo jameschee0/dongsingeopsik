@@ -8,7 +8,8 @@ const MealParser = {};
 MealParser.parse = () => {
   var result;
   console.log(''+init_url);
-  doRequest(makeURL());
+  result = doRequest(makeURL());
+  return result;
 }
 
 function makeURL(){
@@ -27,6 +28,7 @@ function doRequest(url){
     }
   });
   console.log('request working');
+  return list;
 }
 
 module.exports = MealParser;
