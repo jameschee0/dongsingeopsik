@@ -91,7 +91,7 @@ function handleMessage(sender_psid, received_message) {
   if (received_message.text) {
     // Create the payload for a basic text message, which
     // will be added to the body of our request to the Send API
-    response = template.basicText(received_message.text);
+    response = { "text": "hey this is a message response"};
   } else if (received_message.attachments) {
     // Get the URL of the message attachment
     let attachment_url = received_message.attachments[0].payload.url;
@@ -140,7 +140,7 @@ function handlePostback(sender_psid, received_postback) {
     response = {"text":"ㅂㅇㄹ!! 아래 버튼을 눌러 오늘의 메뉴를 확인하세요",
                 "quick_replies":[
                   {
-                  "content_type":"postback",
+                  "content_type":"text",
                   "title":"오늘의 급식",
                   "payload":"GET_MENU_PAYLOAD",
                   }
