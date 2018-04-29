@@ -25,11 +25,12 @@ function doRequest(url){
         $('.tbl_type3 th:contains("중식")').parent().children().each(function () {
           console.log($(this).text());
           list.push($(this).text());
+          return list[2];
         });
+    }else{
+      return 'there was an error'
     }
   });
-  console.log(list.length);
-  return 'i would like to see a good result';
 }
 
 module.exports = MealParser;
