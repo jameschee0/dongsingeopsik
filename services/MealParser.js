@@ -24,7 +24,7 @@ function doRequest(url){
         const $ = cheerio.load(html);
         $('table[class="tbl_type3"]').find('tbody > tr > td').each(function (index, element) {list.push($(element).text());
         });
-        console.log(list);
+        console.log(list[8]);
     }
   });
   console.log('request working');
