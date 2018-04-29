@@ -148,7 +148,7 @@ function handlePostback(sender_psid, received_postback) {
                   ]
                 }
   }else if (payload === "GET_STARTED_PAYLOAD") {
-    response = {"text":"ㅂㅇㄹ!! 아래 버튼을 눌러 오늘의 메뉴를 확인하세요"
+    response = {"text":"ㅂㅇㄹ!! 아래 버튼을 눌러 오늘의 메뉴를 확인하세요",
                 "quick_replies":[
                   {
                   "content_type":"text",
