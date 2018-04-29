@@ -1,6 +1,7 @@
 'use strict';
 const PAGE_ACCESS_TOKEN = process.env.PAGE_ACCESS_TOKEN;
 const VERIFY_TOKEN = process.env.VERIFY_TOKEN;
+const SCHOOL_CODE = 'G100000208';
 // Imports dependencies and set up http server
 const
   request = require('request'),
@@ -10,7 +11,11 @@ const
   Template = require('./message/Template.js'),
   app = express().use(body_parser.json()); // creates express http server
 
+let schoolInfoParser = require('school-info-parser');
+
 const template = new Template();
+const parser = new schoolInfoParser.MenuParser(schoolInfoParser.SchoolLocation['대전광역시'],
+                                        SCHOOL_CODE,schoolInfoParser.SchoolType['HIGH']);
 
 // Sets server port and logs message on success
 app.listen(process.env.PORT || 1337, () => console.log('webhook is listening'));
@@ -132,7 +137,8 @@ function handlePostback(sender_psid, received_postback) {
 
   // Set the response based on the postback payload
   if (payload === 'GET_MENU_PAYLOAD') {
-    response = { "text": "오늘의 메뉴는"}
+    parser.getDailyMenu(new Date()).then((info) => console.log(info));
+    response = { "text": "오늘의 메뉴는"+info}
   }else if (payload === "GET_STARTED_PAYLOAD") {
     response = {"text":"ㅂㅇㄹ!! 아래 버튼을 눌러 오늘의 메뉴를 확인하세요"}
   }
