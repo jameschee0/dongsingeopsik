@@ -8,6 +8,7 @@ class MealParser{
   parse(){
     var result;
     console.log(''+this.init_url);
+    doRequest(''+this.init_url);
   }
 
   doRequest(url){
