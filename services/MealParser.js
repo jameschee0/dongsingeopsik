@@ -28,7 +28,7 @@ function doRequest(url){
         });
     }
   });
-  console.log(list);
+  console.log(list[2]);
   return ''+list[2];
 }
 
