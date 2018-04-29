@@ -134,7 +134,6 @@ function handlePostback(sender_psid, received_postback) {
 
   // Set the response based on the postback payload
   if (payload === 'GET_MENU_PAYLOAD') {
-    mealParser.parse();
     response = { "text": "hey"
                 }
   }else if (payload === "GET_STARTED_PAYLOAD") {

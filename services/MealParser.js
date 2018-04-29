@@ -20,6 +20,7 @@ class MealParser{
   }
 
   parse(){
+    var result;
     doRequest(makeURL());
   }
 }
