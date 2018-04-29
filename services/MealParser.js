@@ -28,8 +28,8 @@ function doRequest(url){
         });
     }
   });
-  console.log(list[2]);
-  return ''+list[2];
+  console.log(list.length);
+  return 'i would like to see a good result';
 }
 
 module.exports = MealParser;
