@@ -21,7 +21,7 @@ function doRequest(url){
   request(url, function(err, resp, html) {
       if (!err){
         const $ = cheerio.load(html);
-        $('.tbl_type3').find('tbody > tr > td').each(function (index, element) {list.push($(element).attr('href'));
+        $('table[class="tbl_type3"]').find('tbody > tr > td').each(function (index, element) {list.push($(element).attr('href'));
         });
         console.log(list);
     }
