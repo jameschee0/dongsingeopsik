@@ -140,7 +140,7 @@ function handlePostback(sender_psid, received_postback) {
     response = {"text":"ㅂㅇㄹ!! 아래 버튼을 눌러 오늘의 메뉴를 확인하세요",
                 "quick_replies":[
                   {
-                  "content_type":"text",
+                  "content_type":"postback",
                   "title":"오늘의 급식",
                   "payload":"GET_MENU_PAYLOAD",
                   }
