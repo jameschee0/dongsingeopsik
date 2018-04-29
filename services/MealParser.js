@@ -18,14 +18,15 @@ function makeURL(){
 }
 
 function doRequest(url){
-  const list = []; //[8]monday [12]friday
+  var list = []; //[8]monday [12]friday
   request(url, function(err, resp, html) {
       if (!err){
         const $ = cheerio.load(html);
+        var current_id = 0;
         $('.tbl_type3 th:contains("중식")').parent().children().each(function () {
-          console.log($(this).text());
           list.push($(this).text());
-          return list[0];
+          console.log($(this).text()+"///////");
+          return list[1];
         });
     }else{
       return 'there was an error'
