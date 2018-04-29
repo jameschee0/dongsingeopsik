@@ -18,6 +18,7 @@ class MealParser{
           console.log(html);
       }
     });
+    console.log('request working');
   }
 
   makeURL(){
