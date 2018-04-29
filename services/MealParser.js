@@ -23,8 +23,9 @@ function doRequest(url){
       if (!err){
         const $ = cheerio.load(html);
         $('.tbl_type3 th:contains("중식")').parent().children().each(function () {
-          list.push($(this).text($.root()));
-          console.log($(this).text($.root())+"///////");
+          list.push($(this).text());
+          var content = $(this).text();
+          console.log(content+"///////");
         });
         return list[2];
     }else{
