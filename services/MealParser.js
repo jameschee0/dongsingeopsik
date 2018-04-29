@@ -5,9 +5,9 @@ class MealParser{
     this.init_url = 'https://stu.dje.go.kr/sts_sci_md01_001.do?schulCode=G100000208&schulCrseScCode=4&schulKndScCode=04&schMmealScCode=2';
   }
 
-  makeURL(){
-    var result = this.init_url;
-    return result;
+  parse(){
+    var result;
+    doRequest(makeURL());
   }
 
   doRequest(url){
@@ -19,9 +19,9 @@ class MealParser{
     });
   }
 
-  parse(){
-    var result;
-    doRequest(makeURL());
+  makeURL(){
+    var result = this.init_url;
+    return result;
   }
 }
 module.exports = MealParser;
