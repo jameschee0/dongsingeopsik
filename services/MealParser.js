@@ -27,7 +27,7 @@ function doRequest(url){
     }
   });
   console.log('request working');
-  return ''+list[8];
+  return ''+list[9];
 }
 
 module.exports = MealParser;
