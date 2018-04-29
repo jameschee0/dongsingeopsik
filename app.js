@@ -137,16 +137,18 @@ function handlePostback(sender_psid, received_postback) {
 
   // Set the response based on the postback payload
   if (payload === 'GET_MENU_PAYLOAD') {
-    parser.getDailyMenu(new Date()).then((info) => console.log(info));
-    response = { "text": info,
-                  "quick_replies":[
-                    {
-                    "content_type":"text",
-                    "title":"오늘의 급식",
-                    "payload":"GET_MENU_PAYLOAD",
-                    }
-                  ]
-                }
+    parser.getDailyMenu(new Date()).then((info) => {
+      console.log(info)
+      response = { "text": info,
+                    "quick_replies":[
+                      {
+                      "content_type":"text",
+                      "title":"오늘의 급식",
+                      "payload":"GET_MENU_PAYLOAD",
+                      }
+                    ]
+                  }
+    });
   }else if (payload === "GET_STARTED_PAYLOAD") {
     response = {"text":"ㅂㅇㄹ!! 아래 버튼을 눌러 오늘의 메뉴를 확인하세요",
                 "quick_replies":[
