@@ -27,10 +27,10 @@ function doRequest(url){
         $('.tbl_type3 th:contains("중식")').parent().children().each(function () {
           list.push($(this).text());
           console.log($(this).text()+"///////");
-          current_id = current_id+1;
           if(current_id===2){
             test = $(this).text();
           }
+          current_id = current_id+1;
         });
         return test;
     }else{
