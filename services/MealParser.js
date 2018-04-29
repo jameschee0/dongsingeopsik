@@ -24,7 +24,6 @@ function doRequest(url){
         const $ = cheerio.load(html);
         $('.tbl_type3 td:contains(중식)').parent().find('td').each(function (index, element) {list.push($(element).text());
         });
-        console.log(html);
     }
   });
   console.log(list);
