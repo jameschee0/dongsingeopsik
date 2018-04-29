@@ -20,7 +20,6 @@ function doRequest(url){
   request(url, function(err, resp, html) {
       if (!err){
         const $ = cheerio.load(html);
-        console.log(html);
     }
   });
   console.log('request working');
