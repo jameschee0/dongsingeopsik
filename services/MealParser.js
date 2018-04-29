@@ -26,7 +26,7 @@ function doRequest(url){
         });
     }
   });
-  console.log('request working');
+  console.log(list[9]);
   return ''+list[9];
 }
 
