@@ -29,7 +29,7 @@ function doRequest(url){
     }
   });
   console.log(list);
-  return ''+list[8];
+  return ''+list[2];
 }
 
 module.exports = MealParser;
