@@ -90,7 +90,7 @@ function handleMessage(sender_psid, received_message) {
   if (received_message.text) {
     // Create the payload for a basic text message, which
     // will be added to the body of our request to the Send API
-    mealParser.parse();
+    MealParser.parse();
     if(received_message.text==='오늘의 급식'){
       response={
         "text":"여기에 급식 디스플레이",
@@ -145,7 +145,7 @@ function handlePostback(sender_psid, received_postback) {
 
   // Set the response based on the postback payload
   if (payload === 'GET_MENU_PAYLOAD') {
-    mealParser.parse();
+    MealParser.parse();
     response={
       "text":"여기에 급식 디스플레이",
       "quick_replies":[
