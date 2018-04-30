@@ -18,16 +18,16 @@ function makeURL(){
 }
 
 function doRequest(url){
-  var list = []; //[8]monday [12]friday
+  var list = ['급식']; //[8]monday [12]friday
   request(url, function(err, resp, html) {
       if (!err){
         const $ = cheerio.load(html);
         $('.tbl_type3 th:contains("중식")').parent().children().each(function () {
-          list.push($(this).text());
-          var content = $(this).text();
-          console.log(content+"///////");
+          //list.push($(this).text());
+          //var content = $(this).text();
+          //console.log(content+"///////");
         });
-        return list[2];
+        return list[0];
     }else{
       return 'there was an error';
     }
