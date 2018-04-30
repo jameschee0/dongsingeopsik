@@ -18,8 +18,8 @@ function makeURL(){
 }
 
 function doRequest(url){
-  var list = ["급식"]; //[8]monday [12]friday
   request(url, function(err, resp, html) {
+    var list = ["급식"]; //[8]monday [12]friday
       if (!err){
         const $ = cheerio.load(html);
         $('.tbl_type3 th:contains("중식")').parent().children().each(function () {
