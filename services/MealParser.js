@@ -4,7 +4,6 @@ const cheerio = require("cheerio"),
 const init_url = "https://stu.dje.go.kr/sts_sci_md01_001.do?schulCode=G100000208&schulCrseScCode=4&schulKndScCode=04&schMmealScCode=2";
 
 const MealParser = {};
-var message = "some random initialization";
 var list = ["안녕","세상"];
 
 MealParser.parse = () => {
@@ -31,13 +30,9 @@ function doRequest(url){
         });
         console.log(list);
         console.log(list[4]);
-        message = list[4];
-    }else{
-      message = 'there was an error';
     }
   });
-  console.log(message);
-  return message;
+  return "work"+list[4];
 }
 
 module.exports = MealParser;
