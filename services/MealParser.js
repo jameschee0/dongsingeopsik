@@ -32,7 +32,8 @@ function parse(url,callback){
       $('.tbl_type3 th:contains("중식")').parent().children().each(function () {
         list.push($(this).text());
       });
-      callback(null,list[4]);
+      var d = new Date();
+      callback(null,list[4]+"///"+d.getDay());
     }
   });
 }
