@@ -9,10 +9,10 @@ var ongoing = true;
 
 MealParser.parse = () => {
   console.log(''+init_url);
-  result_data = yield doRequest(makeURL(),function(err,data){
+  result_data = doRequest(makeURL(),function(err,data){
     console.log(data);
     ongoing = false;
-    return data[4];
+    yield data[4];
   });
   return result_data;
 }
