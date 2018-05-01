@@ -36,6 +36,7 @@ function doRequest(url){
       message = 'there was an error';
     }
   });
+  console.log(message);
   return message;
 }
 
