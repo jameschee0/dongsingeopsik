@@ -4,12 +4,14 @@ const cheerio = require("cheerio"),
 const init_url = "https://stu.dje.go.kr/sts_sci_md01_001.do?schulCode=G100000208&schulCrseScCode=4&schulKndScCode=04&schMmealScCode=2";
 
 const MealParser = {};
-var list = ["안녕","세상"];
+var result_data="sorry error";
 
 MealParser.parse = () => {
-  var result_data;
   console.log(''+init_url);
-  result_data = doRequest(makeURL());
+  doRequest(makeURL(),function(err,data){
+    console.log(data);
+    result_data = data;
+  });
   return result_data;
 }
 
@@ -18,19 +20,17 @@ function makeURL(){
   return result_url;
 }
 
-function doRequest(url){
+function doRequest(url,callback){
   request(url, function(err, resp, html) {
+      var list = ["안녕","세상"];
       if (!err){
-        const $ = cheerio.load(html);
-        $('.tbl_type3 th:contains("중식")').parent().children().each(function () {
-          list.push($(this).text());
-          var content = $(this).text();
-        });
-        console.log(list);
+      const $ = cheerio.load(html);
+      $('.tbl_type3 th:contains("중식")').parent().children().each(function () {
+        list.push($(this).text());
+      });
+      callback(null,list);
     }
   });
-  console.log(list[4]);
-  return list[4];
 }
 
 module.exports = MealParser;
