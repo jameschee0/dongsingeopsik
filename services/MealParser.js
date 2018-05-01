@@ -1,7 +1,7 @@
 const cheerio = require("cheerio"),
       request = require("request");
 
-const init_url = "https://stu.dje.go.kr/sts_sci_md01_001.do?schulCode=G100000208&schulCrseScCode=4&schulKndScCode=04&schMmealScCode=3";
+const init_url = "https://stu.dje.go.kr/sts_sci_md01_001.do?schulCode=G100000208&schulCrseScCode=4&schulKndScCode=04&schMmealScCode=";
 const response_message = {
   "text":"ey!!",
   "quick_replies":[
@@ -16,9 +16,9 @@ const PAGE_ACCESS_TOKEN = process.env.PAGE_ACCESS_TOKEN;
 
 const MealParser = {};
 
-MealParser.sendMeal = (sender_psid) =>{
+MealParser.sendMeal = (sender_psid,type) =>{
   console.log(''+init_url);
-  parse(makeURL(),function(err,data){
+  parse(makeURL(type),makeString(type),function(err,data){
     console.log(data);
     var d = new Date();
     var index = d.getDay()+2;
@@ -26,12 +26,12 @@ MealParser.sendMeal = (sender_psid) =>{
   });
 }
 
-function parse(url,callback){
+function parse(url,query,callback){
   request(url, function(err, resp, html) {
       var list = ["initial array"];
       if (!err){
       const $ = cheerio.load(html);
-      $('.tbl_type3 th:contains("석식")').parent().children().each(function () {
+      $(query).parent().children().each(function () {
         list.push($(this).text());
       });
       callback(null,list);
@@ -39,8 +39,18 @@ function parse(url,callback){
   });
 }
 
-function makeURL(){
-  var result_url = init_url;
+function makeString(type){
+  if(type===1){
+    return '.tbl_type3 th:contains("조식")'
+  }else if (type===2) {
+    return '.tbl_type3 th:contains("중식")'
+  }else if (type===3) {
+    return '.tbl_type3 th:contains("석식")'
+  }
+}
+
+function makeURL(type){
+  var result_url = init_url+type;
   return result_url;
 }
 
