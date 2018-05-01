@@ -19,7 +19,7 @@ function makeURL(){
 
 function doRequest(url){
   request(url, function(err, resp, html) {
-    var list = ["hello","world"]; //[8]monday [12]friday
+    var list = ["안녕","세상아"]; //[8]monday [12]friday
       if (!err){
         const $ = cheerio.load(html);
         $('.tbl_type3 th:contains("중식")').parent().children().each(function () {
