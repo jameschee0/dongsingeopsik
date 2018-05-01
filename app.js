@@ -138,8 +138,7 @@ function handlePostback(sender_psid, received_postback) {
               }
     callSendAPI(sender_psid, response);
   }else if (payload === "GET_STARTED_PAYLOAD") {
-    response = {"text":"동신과학고 여러분 안녕하세요 급식충입니다. 아래 버튼을 눌러 오늘의 메뉴를 확인하세요",
-                quickReply
+    response = {"text":"동신과학고 여러분 안녕하세요 급식충입니다. 아래 버튼을 눌러 오늘의 메뉴를 확인하세요"
               }
     callSendAPI(sender_psid, response);
   }else{
