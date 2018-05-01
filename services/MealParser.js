@@ -10,7 +10,7 @@ MealParser.parse = () => {
   console.log(''+init_url);
   return doRequest(makeURL(),function(err,data){
     console.log(data);
-    return data[4];
+    return "안녕";
   });
 }
 
