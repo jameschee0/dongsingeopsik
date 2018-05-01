@@ -32,6 +32,7 @@ function doRequest(url){
         console.log(list[4]);
     }
   });
+  console.log(list[4]);
   return "work"+list[4];
 }
 
