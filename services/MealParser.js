@@ -22,7 +22,7 @@ MealParser.sendMeal = (sender_psid) =>{
     console.log(data);
     var d = new Date();
     var index = d.getDay()+3;
-    callSendAPI(sender_psid, makeResponse(data[index]));
+    callSendAPI(sender_psid, makeResponse(data[index]+"//"+d.getDay()));
   });
 }
 
