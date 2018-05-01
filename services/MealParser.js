@@ -1,7 +1,7 @@
 const cheerio = require("cheerio"),
       request = require("request");
 
-const init_url = "https://stu.dje.go.kr/sts_sci_md01_001.do?schulCode=G100000208&schulCrseScCode=4&schulKndScCode=04&schMmealScCode=2";
+const init_url = "https://stu.dje.go.kr/sts_sci_md01_001.do?schulCode=G100000208&schulCrseScCode=4&schulKndScCode=04&schMmealScCode=3";
 const response_message = {
   "text":"ey!!",
   "quick_replies":[
@@ -20,7 +20,9 @@ MealParser.sendMeal = (sender_psid) =>{
   console.log(''+init_url);
   parse(makeURL(),function(err,data){
     console.log(data);
-    callSendAPI(sender_psid, makeResponse(data));
+    var d = new Date();
+    var index = d.getDay()+3;
+    callSendAPI(sender_psid, makeResponse(data[index]));
   });
 }
 
@@ -29,11 +31,10 @@ function parse(url,callback){
       var list = ["initial array"];
       if (!err){
       const $ = cheerio.load(html);
-      $('.tbl_type3 th:contains("중식")').parent().children().each(function () {
+      $('.tbl_type3 th:contains("석식")').parent().children().each(function () {
         list.push($(this).text());
       });
-      var d = new Date();
-      callback(null,list[4]+"///"+d.getDay()+"///"+d.getHours());
+      callback(null,list);
     }
   });
 }
