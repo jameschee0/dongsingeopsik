@@ -91,13 +91,12 @@ function handleMessage(sender_psid, received_message) {
     // Create the payload for a basic text message, which
     // will be added to the body of our request to the Send API
     if(received_message.text==='오늘의 급식'){
-      MealParser.sendMeal();
+      MealParser.sendMeal(sender_psid);
     }
   }else{
-    MealParser.sendMeal();
+    MealParser.sendMeal(sender_psid);
   }
   // Send the response message
-  callSendAPI(sender_psid, response);
 }
 
 function handlePostback(sender_psid, received_postback) {
