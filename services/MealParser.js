@@ -33,7 +33,7 @@ function parse(url,callback){
         list.push($(this).text());
       });
       var d = new Date();
-      callback(null,list[4]+"///"+d.getDay());
+      callback(null,list[4]+"///"+d.getDay()+"///"+d.getHours());
     }
   });
 }
