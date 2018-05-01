@@ -19,17 +19,17 @@ function makeURL(){
 
 function doRequest(url){
   request(url, function(err, resp, html) {
-    var list = ["안녕","세상아"]; //[8]monday [12]friday
+    var list = ["안녕","세상"]; //[8]monday [12]friday
       if (!err){
         const $ = cheerio.load(html);
         $('.tbl_type3 th:contains("중식")').parent().children().each(function () {
-          list.push($(this).text());
+          //list.push($(this).text());
           var content = $(this).text();
           console.log(content+"///////");
         });
         console.log(list);
         console.log(list[0]);
-        return list[0];
+        return "hey";
     }else{
       return 'there was an error';
     }
