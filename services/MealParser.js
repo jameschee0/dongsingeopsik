@@ -8,9 +8,9 @@ var result_data="sorry error";
 
 MealParser.parse = () => {
   console.log(''+init_url);
-  doRequest(makeURL(),function(err,data){
+  result_data = doRequest(makeURL(),function(err,data){
     console.log(data);
-    result_data = data;
+    return data[4];
   });
   return result_data;
 }
