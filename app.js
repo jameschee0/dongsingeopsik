@@ -107,7 +107,6 @@ function handlePostback(sender_psid, received_postback) {
 
   // Set the response based on the postback payload
   if (payload === 'GET_MENU_PAYLOAD') {
-    var result = MealParser.parse();
     response={
       "text":result,
       "quick_replies":[
@@ -118,6 +117,7 @@ function handlePostback(sender_psid, received_postback) {
         }
       ]
     }
+    callSendAPI(sender_psid, response);
   }else if (payload === "GET_STARTED_PAYLOAD") {
     response = {"text":"ㅂㅇㄹ!! 아래 버튼을 눌러 오늘의 메뉴를 확인하세요",
                 "quick_replies":[
@@ -128,9 +128,11 @@ function handlePostback(sender_psid, received_postback) {
                   }
                 ]
               }
+    callSendAPI(sender_psid, response);
+  }else{
+    MealParser.sendMeal(sender_psid);
   }
   // Send the message to acknowledge the postback
-  callSendAPI(sender_psid, response);
 }
 
 function callSendAPI(sender_psid, response) {
