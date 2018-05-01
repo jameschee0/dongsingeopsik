@@ -18,6 +18,7 @@ function makeURL(){
 }
 
 function doRequest(url){
+  var message = "some random initialization";
   request(url, function(err, resp, html) {
     var list = ["안녕","세상"]; //[8]monday [12]friday
       if (!err){
@@ -29,11 +30,12 @@ function doRequest(url){
         });
         console.log(list);
         console.log(list[4]);
-        return "hey";
+        message = list[4];
     }else{
-      return 'there was an error';
+      message = 'there was an error';
     }
   });
+  return message;
 }
 
 module.exports = MealParser;
