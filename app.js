@@ -13,7 +13,8 @@ const
 
 const template = new Template();
 
-const quickReply = {
+const Reply = {
+  "text":"default",
   "quick_replies":[
     {
     "content_type":"text",
@@ -117,9 +118,8 @@ function handleMessage(sender_psid, received_message) {
       MealParser.sendMeal(sender_psid,3);
     }
   }else{
-    response = {"text":"에러가 났네요 다시 선택해 주세요!",
-                quickReply
-              }
+    Reply.text = "에러가 났네요 다시 선택해 주세요!";
+    response = Reply;
     callSendAPI(sender_psid, response);
   }
   // Send the response message
@@ -133,30 +133,12 @@ function handlePostback(sender_psid, received_postback) {
 
   // Set the response based on the postback payload
   if (payload === 'GET_MENU_PAYLOAD') {
-    response = {"text":"에러가 났네요 다시 선택해 주세요!",
-                quickReply
-              }
+    Reply.text = "에러가 났네요 다시 선택해 주세요!";
+    response = Reply;
     callSendAPI(sender_psid, response);
   }else if (payload === "GET_STARTED_PAYLOAD") {
-    response = {"text":"동신과학고 여러분 안녕하세요 급식충입니다. 아래 버튼을 눌러 오늘의 메뉴를 확인하세요",
-    "quick_replies":[
-      {
-      "content_type":"text",
-      "title":"오늘의 아침",
-      "payload":"GET_MENU_PAYLOAD"
-      },
-      {
-      "content_type":"text",
-      "title":"오늘의 점심",
-      "payload":"GET_MENU_PAYLOAD"
-      },
-      {
-      "content_type":"text",
-      "title":"오늘의 저녁",
-      "payload":"GET_MENU_PAYLOAD"
-      }
-    ]
-              }
+    Reply.text = "동신과학고 여러분 안녕하세요 급식충입니다. 아래 버튼을 눌러 오늘의 메뉴를 확인하세요";
+    response = Reply;
     callSendAPI(sender_psid, response);
   }else{
     MealParser.sendMeal(sender_psid);
