@@ -19,21 +19,18 @@ function makeURL(){
 }
 
 function doRequest(url){
-
   request(url, function(err, resp, html) {
       if (!err){
         const $ = cheerio.load(html);
         $('.tbl_type3 th:contains("중식")').parent().children().each(function () {
           list.push($(this).text());
           var content = $(this).text();
-          console.log(content+"///////");
         });
         console.log(list);
-        console.log(list[4]);
     }
   });
   console.log(list[4]);
-  return "work"+list[4];
+  return list[4];
 }
 
 module.exports = MealParser;
