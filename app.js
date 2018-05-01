@@ -18,17 +18,17 @@ const quickReply = {
     {
     "content_type":"text",
     "title":"오늘의 아침",
-    "payload":"GET_MENU_PAYLOAD",
+    "payload":"GET_MENU_PAYLOAD"
     },
     {
     "content_type":"text",
     "title":"오늘의 점심",
-    "payload":"GET_MENU_PAYLOAD",
+    "payload":"GET_MENU_PAYLOAD"
     },
     {
     "content_type":"text",
     "title":"오늘의 저녁",
-    "payload":"GET_MENU_PAYLOAD",
+    "payload":"GET_MENU_PAYLOAD"
     }
   ]}
 

@@ -5,12 +5,22 @@ const init_url = "https://stu.dje.go.kr/sts_sci_md01_001.do?schulCode=G100000208
 const response_message = {
   "text":"ey!!",
   "quick_replies":[
-      {
-      "content_type":"text",
-      "title":"오늘의 급식",
-      "payload":"GET_MENU_PAYLOAD",
-      }
-    ]
+    {
+    "content_type":"text",
+    "title":"오늘의 아침",
+    "payload":"GET_MENU_PAYLOAD"
+    },
+    {
+    "content_type":"text",
+    "title":"오늘의 점심",
+    "payload":"GET_MENU_PAYLOAD"
+    },
+    {
+    "content_type":"text",
+    "title":"오늘의 저녁",
+    "payload":"GET_MENU_PAYLOAD"
+    }
+  ]
   }
 const PAGE_ACCESS_TOKEN = process.env.PAGE_ACCESS_TOKEN;
 
@@ -40,6 +50,8 @@ function parse(url,query,callback){
 }
 
 function makeString(type){
+  var first = '.tbl_type3 th:contains("';
+  var last = '")';
   if(type===1){
     return '.tbl_type3 th:contains("조식")'
   }else if (type===2) {
