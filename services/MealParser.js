@@ -31,6 +31,7 @@ function doRequest(url){
         console.log(list);
         console.log(list[4]);
         message = list[4];
+        console.log(message);
     }else{
       message = 'there was an error';
     }
