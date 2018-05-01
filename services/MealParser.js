@@ -28,7 +28,7 @@ function doRequest(url){
           console.log(content+"///////");
         });
         console.log(list);
-        console.log(list[0]);
+        console.log(list[4]);
         return "hey";
     }else{
       return 'there was an error';
