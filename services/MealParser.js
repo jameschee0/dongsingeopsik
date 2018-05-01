@@ -5,6 +5,7 @@ const init_url = "https://stu.dje.go.kr/sts_sci_md01_001.do?schulCode=G100000208
 
 const MealParser = {};
 var message = "some random initialization";
+var list = ["안녕","세상"];
 
 MealParser.parse = () => {
   var result_data;
@@ -21,7 +22,6 @@ function makeURL(){
 function doRequest(url){
 
   request(url, function(err, resp, html) {
-    var list = ["안녕","세상"]; //[8]monday [12]friday
       if (!err){
         const $ = cheerio.load(html);
         $('.tbl_type3 th:contains("중식")').parent().children().each(function () {
