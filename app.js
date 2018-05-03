@@ -134,9 +134,9 @@ function handlePostback(sender_psid, received_postback) {
   // Set the response based on the postback payload
   if (payload === 'GET_MENU_BRE') {
     MealParser.sendMeal(sender_psid,1);
-  }else if (payload === 'GET_MENU_') {
+  }else if (payload === 'GET_MENU_LUN') {
     MealParser.sendMeal(sender_psid,2);
-  }else if (payload === 'GET_MENU_BRE') {
+  }else if (payload === 'GET_MENU_DIN') {
     MealParser.sendMeal(sender_psid,3);
   }else if (payload === "GET_STARTED_PAYLOAD") {
     Reply.text = "동신과학고 여러분 안녕하세요 급식충입니다. 아래 버튼을 눌러 오늘의 메뉴를 확인하세요";
