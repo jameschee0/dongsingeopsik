@@ -19,17 +19,17 @@ const Reply = {
     {
     "content_type":"text",
     "title":"오늘의 아침",
-    "payload":"GET_MENU_PAYLOAD"
+    "payload":"GET_MENU_BRE"
     },
     {
     "content_type":"text",
     "title":"오늘의 점심",
-    "payload":"GET_MENU_PAYLOAD"
+    "payload":"GET_MENU_LUN"
     },
     {
     "content_type":"text",
     "title":"오늘의 저녁",
-    "payload":"GET_MENU_PAYLOAD"
+    "payload":"GET_MENU_DIN"
     }
   ]}
 
@@ -132,16 +132,20 @@ function handlePostback(sender_psid, received_postback) {
   let payload = received_postback.payload;
 
   // Set the response based on the postback payload
-  if (payload === 'GET_MENU_PAYLOAD') {
-    Reply.text = "에러가 났네요 다시 선택해 주세요!";
-    response = Reply;
-    callSendAPI(sender_psid, response);
+  if (payload === 'GET_MENU_BRE') {
+    MealParser.sendMeal(sender_psid,1);
+  }else if (payload === 'GET_MENU_') {
+    MealParser.sendMeal(sender_psid,2);
+  }else if (payload === 'GET_MENU_BRE') {
+    MealParser.sendMeal(sender_psid,3);
   }else if (payload === "GET_STARTED_PAYLOAD") {
     Reply.text = "동신과학고 여러분 안녕하세요 급식충입니다. 아래 버튼을 눌러 오늘의 메뉴를 확인하세요";
     response = Reply;
     callSendAPI(sender_psid, response);
   }else{
-    MealParser.sendMeal(sender_psid);
+    Reply.text = "에러가 났네요 다시 선택해 주세요!";
+    response = Reply;
+    callSendAPI(sender_psid, response);
   }
   // Send the message to acknowledge the postback
 }

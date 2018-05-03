@@ -18,9 +18,19 @@ class Template{
       "composer_input_disabled": true,
       "call_to_actions":[
         {
-          "title":"오늘의 급식",
-          "type":"postback",
-          "payload":"GET_MENU_PAYLOAD"
+        "content_type":"text",
+        "title":"오늘의 아침",
+        "payload":"GET_MENU_BRE"
+        },
+        {
+        "content_type":"text",
+        "title":"오늘의 점심",
+        "payload":"GET_MENU_LUN"
+        },
+        {
+        "content_type":"text",
+        "title":"오늘의 저녁",
+        "payload":"GET_MENU_DIN"
         }
       ]
     }
