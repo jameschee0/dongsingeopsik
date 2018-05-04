@@ -13,26 +13,6 @@ const
 
 const template = new Template();
 
-const Reply = {
-  "text":"default",
-  "quick_replies":[
-    {
-    "content_type":"text",
-    "title":"오늘의 아침",
-    "payload":"GET_MENU_BRE"
-    },
-    {
-    "content_type":"text",
-    "title":"오늘의 점심",
-    "payload":"GET_MENU_LUN"
-    },
-    {
-    "content_type":"text",
-    "title":"오늘의 저녁",
-    "payload":"GET_MENU_DIN"
-    }
-  ]}
-
 // Sets server port and logs message on success
 app.listen(process.env.PORT || 1337, () => console.log('webhook is listening'));
 
