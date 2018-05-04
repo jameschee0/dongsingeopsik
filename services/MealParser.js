@@ -32,7 +32,11 @@ MealParser.sendMeal = (sender_psid,type) =>{
     console.log(data);
     var d = new Date();
     var index = d.getDay()+2;
-    callSendAPI(sender_psid, makeResponse(data[index]));
+    if(data[index].length>0){
+      callSendAPI(sender_psid, makeResponse(data[index]));
+    }else{
+      callSendAPI(sender_psid, makeResponse("급식이 없습니다"));
+    }
   });
 }
 
