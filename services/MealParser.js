@@ -1,27 +1,10 @@
 const cheerio = require("cheerio"),
-      request = require("request");
+      request = require("request"),
+      Template = require('./message/Template.js');
+
+const template = new Template();
 
 const init_url = "https://stu.dje.go.kr/sts_sci_md01_001.do?schulCode=G100000208&schulCrseScCode=4&schulKndScCode=04&schMmealScCode=";
-const response_message = {
-  "text":"ey!!",
-  "quick_replies":[
-    {
-    "content_type":"text",
-    "title":"오늘의 아침",
-    "payload":"GET_MENU_PAYLOAD"
-    },
-    {
-    "content_type":"text",
-    "title":"오늘의 점심",
-    "payload":"GET_MENU_PAYLOAD"
-    },
-    {
-    "content_type":"text",
-    "title":"오늘의 저녁",
-    "payload":"GET_MENU_PAYLOAD"
-    }
-  ]
-  }
 const PAGE_ACCESS_TOKEN = process.env.PAGE_ACCESS_TOKEN;
 
 const MealParser = {};
@@ -71,8 +54,9 @@ function makeURL(type){
 }
 
 function makeResponse(data){
-  response_message.text = data;
-  return response_message;
+  var response = template.standardResponse();
+  response.text = data;
+  return response;
 }
 
 function callSendAPI(sender_psid, response) {

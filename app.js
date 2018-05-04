@@ -118,8 +118,8 @@ function handleMessage(sender_psid, received_message) {
       MealParser.sendMeal(sender_psid,3);
     }
   }else{
-    Reply.text = "에러가 났네요 다시 선택해 주세요!";
-    response = Reply;
+    response = template.standardResponse();
+    response.text = "에러가 났네요 다시 선택해 주세요!";
     callSendAPI(sender_psid, response);
   }
   // Send the response message
@@ -139,12 +139,12 @@ function handlePostback(sender_psid, received_postback) {
   }else if (payload === 'GET_MENU_DIN') {
     MealParser.sendMeal(sender_psid,3);
   }else if (payload === "GET_STARTED_PAYLOAD") {
-    Reply.text = "동신과학고 여러분 안녕하세요 급식충입니다. 아래 버튼을 눌러 오늘의 메뉴를 확인하세요";
-    response = Reply;
+    response = template.standardResponse();
+    response.text = "동신과학고 여러분 안녕하세요 급식충입니다. 아래 버튼을 눌러 오늘의 메뉴를 확인하세요";
     callSendAPI(sender_psid, response);
   }else{
-    Reply.text = "에러가 났네요 다시 선택해 주세요!";
-    response = Reply;
+    response = template.standardResponse();
+    response.text = "에러가 났네요 다시 선택해 주세요!";
     callSendAPI(sender_psid, response);
   }
   // Send the message to acknowledge the postback
