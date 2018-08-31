@@ -186,5 +186,5 @@ function setupAPI(){
 }
 
 setInterval(function() {
-    https.get("https://ilogicsdev.herokuapp.com/");
+    https.get("https://fast-shelf-97903.herokuapp.com/");
 }, 300000);
