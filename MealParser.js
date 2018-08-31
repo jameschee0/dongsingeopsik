@@ -1,6 +1,6 @@
 const cheerio = require("cheerio"),
       request = require("request"),
-      Template = require("Template");
+      Template = require("./Template");
 
 const template = new Template();
 
