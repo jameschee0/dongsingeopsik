@@ -7,8 +7,8 @@ const
   express = require('express'),
   body_parser = require('body-parser'),
   https = require("https"),
-  Template = require('./message/Template'),
-  MealParser = require('./services/MealParser'),
+  Template = require('./Template'),
+  MealParser = require('./MealParser'),
   app = express().use(body_parser.json()); // creates express http server
 
 const template = new Template();
